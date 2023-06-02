@@ -6,7 +6,10 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { reducer } from './store/reducer.js';
 
-const store = createStore(reducer);
+const store = createStore(
+  reducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+); //connects to the REDUX extension - reads as - if you have a REDUX extension, then execute it.
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
